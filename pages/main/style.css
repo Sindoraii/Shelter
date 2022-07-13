@@ -6,6 +6,20 @@
 body {
     font-family: Georgia, serif;
     font-size: 15px;
+    --color-light-xl: #FFFFFF;
+    --color-light-l: #F6F6F6;
+    --color-light-s: #FAFAFA;
+    --color-dark-s: #CDCDCD;
+    --color-dark-m: #B2B2B2;
+    --color-dark-l: #545454;
+    --color-dark-xl: #4C4C4C;
+    --color-dark-2xl: #444444;
+    --color-dark-3xl: #292929;
+    --color-primary: #F1CDB3;
+    --color-primary-light: #FDDCC4;
+    --start-screen-gradient-background: #211F20;
+    --radial-first: #5B483A;
+    --radial-second: #262425 ;
 }
 h1 {
     font-weight: 400;
@@ -16,6 +30,7 @@ h2 {
     font-weight: 400;
     font-size: 44px;
     line-height: 57.2px;
+    color: var(--color-light-xl);
 }
 h3 {
     font-weight: 400;
@@ -32,6 +47,7 @@ a {
     flex-basis: 1280px;
     justify-content: center;
     padding-top: 60px;
+    background:url("../../assets/images/background-texture.png"), linear-gradient(to bottom right, var(--radial-first),var(--radial-second) , var(--start-screen-gradient-background));
 }
 .layout__main {
     display: flex;
@@ -46,17 +62,30 @@ a {
     padding-bottom: 60px;
 }
 .header__h1 {
-    line-height: 35.2px;
+    letter-spacing: 0.06em;
     padding-bottom: 10px;
+    color: var(--color-primary);
 }
 .header__text{
+    letter-spacing: 0.1em;
     line-height:14.95px;
+    color: var(--color-light-l);
+    font-family:Arial, sans-serif;
+    font-size: 13px;
 }
 .header__menu {
-    padding: 16px 0 17px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu__item {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--color-light-s);
 }
 .menu__item:first-of-type {
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid var(--color-primary);
 }
 .menu__item:not(:last-of-type){
     margin-right: 35px;
@@ -65,11 +94,17 @@ a {
     display: flex;
     align-items: center;
 }
-..main-content__article {
+.main-content__article {
     padding-right: 42px;
 }
 .main-content__article > *:not(:last-child){
     padding-bottom: 42px;
+}
+.main-content__text {
+    color: var(--color-dark-s);
+    font-family: Arial,sans-serif;
+    line-height: 24px;
+    font-weight: 400;
 }
 
 
