@@ -93,12 +93,19 @@ a {
 }
 .main-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 .main-content__article {
+    display: flex;
+}
+.wrapper-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding-right: 42px;
 }
-.main-content__article > *:not(:last-child){
+.wrapper-column > *:not(:last-child){
     padding-bottom: 42px;
 }
 .main-content__text {
@@ -108,6 +115,7 @@ a {
     font-weight: 400;
 }
 .button {
+    width: max-content;
     padding: 15px 45px;
     border-radius: 100px;
     font-family: Georgia, serif;
