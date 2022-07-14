@@ -47,7 +47,7 @@ a {
     flex-basis: 1280px;
     justify-content: center;
     padding-top: 60px;
-    background:url("../../assets/images/background-texture.png"), linear-gradient(to bottom right, var(--radial-first),var(--radial-second) , var(--start-screen-gradient-background));
+    background:url("../../assets/images/background-texture.png"), radial-gradient(circle at bottom right, var(--start-screen-gradient-background) ,var(--radial-second) ,var(--radial-first));
 }
 .layout__main {
     display: flex;
