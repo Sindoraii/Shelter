@@ -39,6 +39,14 @@ h3 {
     line-height: 45.5px;
     letter-spacing: 0.06em;
     color: var(--color-dark-l);
+    text-align: center;
+}
+h4 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-l);
 }
 a {
     text-decoration: none;
@@ -64,6 +72,9 @@ a {
 }
 .layout_white {
     background: var(--color-light-xl);
+}
+.layout_gray {
+    background: var(--color-light-l);
 }
 .header {
     display: flex;
@@ -138,9 +149,21 @@ a {
     font-weight: 400;
     line-height: 22px;
     letter-spacing: 0.06em;
+    color: var(--color-dark-3xl);
+    background-color: var(--color-light-s);
+    border: 2px solid var(--color-primary);
 }
 .button_pink {
     background-color: var(--color-primary);
+    border: 0;
+}
+.button_arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+    width: 52px;
+    padding: 0;
 }
 .about__wrapper-column {
     padding: 14px 0 14px 120px;
@@ -150,4 +173,39 @@ a {
 }
 .about__photo {
     height: 408px;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-light-s);
+    border-radius: 9px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 270px;
+    padding-bottom: 30px;
+}
+.card >*:not(:last-child) {
+    padding-bottom: 30px;
+}
+.pets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pets >*:not(:last-child) {
+    padding-bottom: 60px;
+}
+.pets__cards-row {
+    display: flex;
+    align-items: center;
+}
+.pets__cards-row >:first-child {
+    margin-right: 53px;
+}
+.pets__cards-row >:last-child {
+    margin-left: 53px;
+}
+.pets__card {
+    margin-right: 90px ;
 }
