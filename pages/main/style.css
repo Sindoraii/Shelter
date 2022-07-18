@@ -22,6 +22,9 @@ body {
     --radial-first: #5B483A;
     --radial-second: #262425 ;
 }
+svg {
+    flex-shrink: 0;
+}
 h1 {
     font-weight: 400;
     line-height: 35.2px;
@@ -66,10 +69,6 @@ a {
     justify-content: center;
     background:url("../../assets/images/background-texture.png"), radial-gradient(circle at bottom right, var(--start-screen-gradient-background) ,var(--radial-second) ,var(--radial-first));
 }
-.layout:not(:first-of-type) {
-    padding-bottom: 100px;
-    padding-top: 80px;
-}
 .layout__content {
     display: flex;
     flex-basis: 1200px;
@@ -77,10 +76,17 @@ a {
     flex-shrink: 0;
     flex-direction: column;
 }
+.layout_footer {
+    padding: 40px 40px 0 40px;
+}
 .layout_white {
+    padding-bottom: 100px;
+    padding-top: 80px;
     background: var(--color-light-xl);
 }
 .layout_gray {
+    padding-bottom: 100px;
+    padding-top: 80px;
     background: var(--color-light-l);
 }
 .icons {
@@ -248,6 +254,11 @@ a {
     align-items: center;
     padding: 10px 15px;
     border-radius: 9px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-l);
 }
 .donation__credit-card >:first-child{
     margin-right: 15px;
@@ -265,4 +276,46 @@ a {
 .donation__photo {
     width: 505px;
     height: 261px;
+}
+.footer  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer__text-content {
+    display: flex;
+}
+.contacts__wrapper-column >*:not(:last-child) {
+    padding-bottom: 40px;
+}
+.footer__contacts {
+    padding: 16px 160px 60px 0;
+}
+.footer__location {
+    padding: 16px 160px 60px 0;
+}
+.location__wrapper-column > a:not(:last-child) {
+    padding-bottom: 34px;
+}
+.footer__h3 {
+    color: var(--color-light-xl);
+    text-align: start;
+    padding-bottom: 34px;
+}
+.footer__link {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+}
+.footer__text {
+    margin-left: 20px;
+}
+.footer__photo {
+    align-self: end;
+    width: 300px;
+    height: 310px;
 }
