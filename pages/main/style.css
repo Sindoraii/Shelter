@@ -60,6 +60,7 @@ h5 {
 }
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 .layout {
     display: flex;
@@ -171,11 +172,20 @@ a {
     letter-spacing: 0.06em;
     color: var(--color-dark-3xl);
     background-color: var(--color-light-s);
-    border: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-primary);
+}
+.button:hover {
+    background-color: var(--color-primary-light);
+    cursor: pointer;
+    outline: 0;
 }
 .button_pink {
     background-color: var(--color-primary);
-    border: 0;
+    outline: 0;
+}
+.button_pink:hover {
+    background-color: var(--color-primary-light);
+    cursor: pointer;
 }
 .button_arrow {
     display: flex;
@@ -213,6 +223,10 @@ a {
 }
 .card >*:not(:last-child) {
     padding-bottom: 30px;
+}
+.card:hover > button {
+    background-color: var(--color-primary-light);
+    outline: 0;
 }
 .pets {
     display: flex;
