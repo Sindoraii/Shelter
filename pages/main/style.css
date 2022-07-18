@@ -121,9 +121,10 @@ a {
     font-family: Arial, sans-serif;
     font-size: 15px;
     line-height: 24px;
-    color: var(--color-light-s);
+    color: var(--color-dark-s);
 }
 .menu__item:first-of-type {
+    color: var(--color-light-s);
     border-bottom: 3px solid var(--color-primary);
 }
 .menu__item:not(:last-of-type){
