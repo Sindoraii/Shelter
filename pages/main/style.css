@@ -108,7 +108,7 @@ a {
 .header__text{
     letter-spacing: 0.1em;
     line-height:14.95px;
-    color: var(--color-light-l);
+    color: var(--color-light-xl);
     font-family:Arial, sans-serif;
     font-size: 13px;
 }
