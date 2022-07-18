@@ -224,6 +224,10 @@ a {
 .card >*:not(:last-child) {
     padding-bottom: 30px;
 }
+.card:hover {
+    background-color: var(--color-light-xl);
+    cursor: pointer;
+}
 .card:hover > button {
     background-color: var(--color-primary-light);
     outline: 0;
