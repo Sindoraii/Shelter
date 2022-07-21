@@ -246,6 +246,9 @@ a {
     align-items: center;
     flex-wrap: wrap;
 }
+.pets__container-cards {
+    display: flex;
+}
 .pets__card {
     margin-right: 90px ;
 }
