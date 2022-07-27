@@ -124,7 +124,7 @@ a {
     line-height: 24px;
     color: var(--color-dark-s);
 }
-.menu__item:first-of-type {
+.menu__item_active {
     color: var(--color-light-s);
     border-bottom: 3px solid var(--color-primary);
 }

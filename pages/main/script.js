@@ -40,7 +40,7 @@ pets.push(
         photo:'../../assets/images/pets/pets-freddie.png'
     }
 )
-/* appending tree cards by default */
+/* appending three cards by default */
 const firstCard = pets.slice(0,3);
 createCards(firstCard);
 

@@ -1,0 +1,19 @@
+.layout {
+    background: var(--color-light-xl);
+}
+.header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.header__h1 {
+    color: var(--color-dark-l);
+}
+.header__text {
+    color: var(--color-dark-3xl);
+}
+.menu__item {
+   color: var(--color-dark-l);
+}
+.menu__item_active {
+    color: var(--color-dark-3xl);
+}
