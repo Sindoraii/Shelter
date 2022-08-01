@@ -1,4 +1,4 @@
-.layout {
+.layout:not(.layout_footer) {
     background: var(--color-light-xl);
 }
 .header {
@@ -16,4 +16,20 @@
 }
 .menu__item_active {
     color: var(--color-dark-3xl);
+}
+.main-content-flexible {
+    flex: 1 0 auto;
+}
+.pets__cards-column {
+
+ }
+.pets__pagination {
+    display: flex;
+}
+.pets__pagination > button:not(:last-child) {
+    margin-right: 20px;
+}
+.pets__pagination > .button_arrow {
+    font-size: 20px;
+    line-height: 23px;
 }

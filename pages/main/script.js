@@ -6,7 +6,7 @@ const sliderLength = 3;
 let startIndex = 1;
 
 /* data for cards*/
-const pets = [];
+export const pets = [];
 pets.push(
     {   name:'Katrine',
         photo:'../../assets/images/pets/gray-cat.png',
@@ -49,7 +49,7 @@ buttonRight.addEventListener('click',() => getCurrentPets(pets,'right'));
 buttonLeft.addEventListener('click', ()=> getCurrentPets(pets,'left'));
 
 
-function createCards(arr) {
+export function createCards(arr) {
     parent.textContent=' ';
 
     for(let i = 0; i < arr.length; i++){
@@ -82,7 +82,7 @@ function createCards(arr) {
     }
 }
 
-function getCurrentPets(arr,side) {
+export function getCurrentPets(arr,side) {
     if(side === 'right'&& ((startIndex+sliderLength) <= arr.length)) {
         let subArr = arr.slice(startIndex,startIndex+sliderLength);
         startIndex += 1;
