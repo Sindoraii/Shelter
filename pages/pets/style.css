@@ -58,6 +58,3 @@
     color: var(--color-dark-s);
     outline: 2px solid var(--color-dark-s);
 }
-.pagination > *:disabled:hover{
-
-}

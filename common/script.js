@@ -39,9 +39,7 @@ function createCards(arr,parentElem) {
 
     for(let i = 0; i < arr.length; i++){
         const cardPets = document.createElement('article');
-        // cardPets.classList.add('pets__card','card');
         cardPets.classList.add('card');
-
 
         const petName = document.createElement('h4');
         const petPhoto = document.createElement('img');
@@ -64,13 +62,12 @@ function createCards(arr,parentElem) {
     }
 }
 
-/* variables for slider listeners*/
-let startIndex = 1;
-const sliderLength = 3;
+/* variables for using slider listeners*/
+let startIndex;
+let sliderLength;
 
 /* listeners for buttons of slider*/
 function getPreviousCard(arr,parentElem) {
-    console.log(startIndex)
     if(startIndex-1 > 0){
         let subArr = arr.slice(startIndex-2,startIndex +1);
         startIndex--;
