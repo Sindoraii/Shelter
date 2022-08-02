@@ -20,9 +20,14 @@
 .main-content-flexible {
     flex: 1 0 auto;
 }
+.pets__container-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
 .pets__cards-column {
-
- }
+    display: flex;
+    flex-direction: column;
+}
 .pets__pagination {
     display: flex;
 }
