@@ -256,8 +256,8 @@ a {
 .pets__container-cards {
     display: flex;
 }
-.pets__card {
-    margin-right: 90px ;
+.pets__container-cards > :not(:nth-child(3n)) {
+    margin-right: 90px;
 }
 .pets__icon {
     margin-right: 120px;

@@ -39,22 +39,19 @@ function createCards(arr,parentElem) {
 
     for(let i = 0; i < arr.length; i++){
         const cardPets = document.createElement('article');
-        cardPets.classList.add('pets__card','card');
+        // cardPets.classList.add('pets__card','card');
+        cardPets.classList.add('card');
+
 
         const petName = document.createElement('h4');
         const petPhoto = document.createElement('img');
 
         const wrapper = document.createElement('div');
-        wrapper.classList.add('wrapper-column','pets__wrapper-column');
+        wrapper.classList.add('wrapper-column');
 
         const cardButton = document.createElement('button');
         cardButton.innerText ='Learn more';
         cardButton.className = 'button';
-
-        if(i % 2 === 0 && i !== 0) {
-            cardPets.classList.remove('pets__card');
-            wrapper.classList.remove('pets__wrapper-column');
-        }
 
         petName.innerText = arr[i].name;
         petPhoto.setAttribute('src',arr[i].photo);

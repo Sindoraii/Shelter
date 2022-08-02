@@ -24,9 +24,24 @@
     display: flex;
     flex-wrap: wrap;
 }
+.pets__container-cards > :not(:nth-child(3n)) {
+    margin-right: inherit;
+}
+.pets__container-cards > :not(:nth-child(4n)) {
+    margin-right: 40px;
+}
+.pets__container-cards > * {
+    margin-bottom: 40px;
+}
 .pets__cards-column {
     display: flex;
     flex-direction: column;
+}
+.pets__cards-column >.wrapper-column {
+    margin-bottom: 40px;
+}
+.pets__card {
+    margin-right: 40px;
 }
 .pets__pagination {
     display: flex;
