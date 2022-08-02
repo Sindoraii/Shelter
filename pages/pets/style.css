@@ -43,13 +43,21 @@
 .pets__card {
     margin-right: 40px;
 }
-.pets__pagination {
+.pagination {
     display: flex;
+    justify-content: center;
 }
-.pets__pagination > button:not(:last-child) {
+.pagination > button:not(:last-child) {
     margin-right: 20px;
 }
-.pets__pagination > .button_arrow {
+.pagination > .button_arrow {
     font-size: 20px;
     line-height: 23px;
+}
+.pagination > *:disabled {
+    color: var(--color-dark-s);
+    outline: 2px solid var(--color-dark-s);
+}
+.pagination > *:disabled:hover{
+
 }

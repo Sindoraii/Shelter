@@ -178,7 +178,7 @@ a {
     background-color: var(--color-light-s);
     outline: 2px solid var(--color-primary);
 }
-.button:hover {
+.button:hover:not(:disabled) {
     background-color: var(--color-primary-light);
     cursor: pointer;
     outline: 0;
@@ -187,7 +187,7 @@ a {
     background-color: var(--color-primary);
     outline: 0;
 }
-.button_pink:hover {
+.button_pink:hover:not(:disabled) {
     background-color: var(--color-primary-light);
     cursor: pointer;
 }
