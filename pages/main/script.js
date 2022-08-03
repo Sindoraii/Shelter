@@ -12,6 +12,6 @@ const firstCard = pets.slice(0,3);
 createCards(firstCard,parent);
 
 /* events */
-buttonRight.addEventListener('click',() => getNextCard(pets,parent));
-// buttonLeft.addEventListener('click', ()=> getPreviousCard(pets,parent));
+buttonRight.addEventListener('click',() => getNextCards(pets,parent));
+buttonLeft.addEventListener('click', ()=> getPreviousCard(pets,parent));
 

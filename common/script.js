@@ -67,18 +67,31 @@ let startIndex;
 let sliderLength;
 
 /* listeners for buttons of slider*/
-function getPreviousCard(arr,parentElem) {
-    if(startIndex-1 > 0){
-        let subArr = arr.slice(startIndex-2,startIndex +1);
+function getPreviousCard(arr, parentElem) {
+    if (startIndex - 1 > 0) {
+        let subArr = arr.slice(startIndex - 2, startIndex + 1);
         startIndex--;
-        createCards(subArr,parentElem);
+        createCards(subArr, parentElem);
     }
 }
 
-function getNextCard(arr,parentElem) {
-    if(startIndex+sliderLength <= arr.length) {
-        let subArr = arr.slice(startIndex,startIndex+sliderLength);
-        startIndex += 1;
-        createCards(subArr,parentElem);
+function getNextCards(arr, parentElem, count = 0) {
+    if (count !== 0 && count > 0) {
+        let end = count + sliderLength + startIndex - 1;
+        let start = startIndex + count - 1;
+
+        if (end <= arr.length) {
+            let subArr = arr.slice(start, end);
+            startIndex += count;
+            createCards(subArr, parentElem);
+        }
+    } else if (count === 0) {
+        if (startIndex + sliderLength <= arr.length) {
+            let subArr = arr.slice(startIndex, startIndex + sliderLength);
+            startIndex += 1;
+            createCards(subArr, parentElem);
+        }
+    } else {
+        console.error('Count should be equal  zero or positive integer');
     }
 }
