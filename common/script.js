@@ -1,3 +1,8 @@
+/* variables for using slider listeners*/
+// let startIndex;
+// let sliderLength;
+// let clickCount = 0;
+
 /* data for cards*/
 const pets = [];
 pets.push(
@@ -37,7 +42,7 @@ pets.push(
 function createCards(arr,parentElem) {
     parentElem.textContent=' ';
 
-    for(let i = 0; i < arr.length; i++){
+    for(let i = 0; i < arr.length; i++) {
         const cardPets = document.createElement('article');
         cardPets.classList.add('card');
 
@@ -48,11 +53,11 @@ function createCards(arr,parentElem) {
         wrapper.classList.add('wrapper-column');
 
         const cardButton = document.createElement('button');
-        cardButton.innerText ='Learn more';
+        cardButton.innerText = 'Learn more';
         cardButton.className = 'button';
 
         petName.innerText = arr[i].name;
-        petPhoto.setAttribute('src',arr[i].photo);
+        petPhoto.setAttribute('src', arr[i].photo);
 
         cardPets.appendChild(petPhoto);
         cardPets.appendChild(petName);
@@ -62,36 +67,90 @@ function createCards(arr,parentElem) {
     }
 }
 
-/* variables for using slider listeners*/
-let startIndex;
-let sliderLength;
 
 /* listeners for buttons of slider*/
-function getPreviousCard(arr, parentElem) {
-    if (startIndex - 1 > 0) {
-        let subArr = arr.slice(startIndex - 2, startIndex + 1);
-        startIndex--;
-        createCards(subArr, parentElem);
-    }
-}
+// function getPreviousCard(arr, parentElem, count = 0) {
+//         // if (startIndex-clickCount-1 >= 0) {
+//         let subArr = arr.slice(startIndex-clickCount-1, sliderLength - startIndex+clickCount+1);
+//         console.log('start ', startIndex-clickCount-1)
+//         console.log('end ', sliderLength - startIndex)
+//         console.log('index ', startIndex)
+//         console.log(subArr)
+//         startIndex -= 1;
+//         console.log('index after', startIndex)
+//         createCards(subArr, parentElem);
+//         console.log(arr)
+//
+// // }
+// }
 
-function getNextCards(arr, parentElem, count = 0) {
-    if (count !== 0 && count > 0) {
-        let end = count + sliderLength + startIndex - 1;
-        let start = startIndex + count - 1;
 
-        if (end <= arr.length) {
-            let subArr = arr.slice(start, end);
-            startIndex += count;
-            createCards(subArr, parentElem);
-        }
-    } else if (count === 0) {
-        if (startIndex + sliderLength <= arr.length) {
-            let subArr = arr.slice(startIndex, startIndex + sliderLength);
-            startIndex += 1;
-            createCards(subArr, parentElem);
-        }
-    } else {
-        console.error('Count should be equal  zero or positive integer');
-    }
-}
+// function getNextCards(arr, parentElem, count = 1) {
+//     if ( count >= 1) {
+//         let end = count + sliderLength + startIndex - 1;
+//         let start = startIndex + count - 1;
+//
+//         if (end <= arr.length) {
+//             let subArr = arr.slice(start, end);
+//             startIndex += count;
+//             createCards(subArr, parentElem);
+//             clickCount++;
+//         }
+//
+//         if (startIndex + sliderLength <= arr.length) {
+//             let subArr = arr.slice(startIndex + count-1, startIndex * count);
+//             console.log('start ', startIndex + count);
+//             console.log('end ', startIndex * count)
+//             startIndex += 1;
+//
+//             createCards(subArr, parentElem);
+//             clickCount++;
+//
+//             console.log(arr)
+//             console.log(subArr)
+//         }
+//
+//     // } else if (count === 0) {
+//     //     if (startIndex + sliderLength <= arr.length) {
+//     //         let subArr = arr.slice(startIndex, startIndex + sliderLength);
+//     //
+//     //         startIndex += 1;
+//     //         createCards(subArr, parentElem);
+//     //         clickCount++;
+//     //     }
+//     } else {
+//         console.error('Count should be equal  zero or positive integer');
+//     }
+//     console.log('INDEX ' , startIndex)
+// }
+
+
+
+
+
+
+// function getSignalForObservers(observers) {
+//     if(Array.isArray(observers)) {
+//         observers.forEach(observer => {
+//             observer.signal = true;
+//         })
+//     } else {
+//         console.error('Observers type is not array');
+//     }
+// }
+//
+// function createObserver(observer,callback) {
+//     let obj = {
+//         observer: observer,
+//         signal: false,
+//         update: callback()
+//     }
+//     return obj;
+// }
+
+
+
+
+
+
+
