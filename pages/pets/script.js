@@ -10,25 +10,22 @@ const firstCard = pets.slice(0,8);
 const copy = JSON.parse(JSON.stringify(pets));
 let arrPets = firstCard.concat(copy.reverse()).concat(pets).concat(copy);
 
-let startIndex = 8;
 let sliderLength = 8;
 let maxPage = arrPets.length / sliderLength;
-let minPage = 2;
-
+let minPage = 1;
 createCards(firstCard,parentElem);
 
 
 /* events */
-buttonRight.addEventListener('click',()=>getNextCards(arrPets,parentElem));
-buttonRight.addEventListener('click',()=>setNumberPage(buttonNumber));
-buttonDoubleRight.addEventListener('click', ()=>toTheLastPage(arrPets,sliderLength));
-buttonDoubleRight.addEventListener('click',()=>setNumberPage(buttonNumber));
+buttonRight.addEventListener('click',()=>getNextCards(arrPets,parentElem,buttonNumber));
+buttonRight.addEventListener('click',()=>increaseNumberPage(buttonNumber));
+buttonDoubleRight.addEventListener('click', ()=>toTheLastPage(arrPets,sliderLength,buttonNumber));
+buttonDoubleRight.addEventListener('click',()=>increaseNumberPage(buttonNumber));
 
-buttonLeft.addEventListener('click',()=>getPreviousCards(arrPets,parentElem));
-buttonLeft.addEventListener('click',()=>setNumberPage(buttonNumber))
-buttonDoubleLeft.addEventListener('click',()=>toTheFirstPage(arrPets,sliderLength));
-buttonDoubleLeft.addEventListener('click',()=>setNumberPage(buttonNumber));
-
+buttonLeft.addEventListener('click',()=>getPreviousCards(arrPets,parentElem,buttonNumber));
+buttonLeft.addEventListener('click',()=>decreaseNumberPage(buttonNumber))
+buttonDoubleLeft.addEventListener('click',()=>toTheFirstPage(arrPets,sliderLength,buttonNumber));
+buttonDoubleLeft.addEventListener('click',()=>decreaseNumberPage(buttonNumber));
 
 
 function changeButtonState(elements =[],flag = false) {
@@ -41,82 +38,85 @@ function changeButtonState(elements =[],flag = false) {
     })
 }
 
-function toTheFirstPage(arr,sliderLength) {
-    startIndex =0;
-    let subArr = arr.slice(startIndex,sliderLength);
+
+function toTheFirstPage(arr,sliderLength,button) {
+    let subArr = arr.slice(0,sliderLength);
     createCards(subArr,parentElem);
     minPage = 1;
+    button.innerHTML = minPage;
     changeButtonState([buttonLeft,buttonDoubleLeft],true);
-
 }
 
 
-function toTheLastPage(arr,sliderLength) {
-    startIndex = arr.length-sliderLength;
-    let subArr = arr.slice(startIndex);
-    createCards(subArr,parentElem);
+function toTheLastPage(arr,sliderLength,button) {
     minPage = maxPage;
+    button.innerHTML = minPage;
+
+    let numberPage = Number(button.innerHTML);
+    let start = numberPage * sliderLength - sliderLength;
+    let subArr = arr.slice(start);
+    createCards(subArr,parentElem);
+
     changeButtonState([buttonRight,buttonDoubleRight],true);
 }
 
-function setNumberPage(button) {
-    console.log('minPage', minPage)
-    console.log('maxPage', maxPage)
 
-
-    increase();
+function decreaseNumberPage(button){
+    if(minPage > 1 ) {
+        button.innerHTML = minPage-1;
+            minPage--;
+    }
     checkNumberPage();
+}
 
 
-/* todo  increase*/
-    function increase() {
-        if(minPage+1 === 2){
-            button.innerHTML = 1;
-            minPage++;
+function increaseNumberPage(button) {
+ if (minPage < maxPage ) {
+        button.innerHTML = minPage+1;
+        minPage++;
+    }
+    checkNumberPage();
+}
 
-        }else if (minPage <= maxPage ) {
-            button.innerHTML = minPage;
-            minPage++;
+
+function checkNumberPage() {
+    checkMinPageNumber();
+    checkMaxPageNumber();
+
+    function checkMaxPageNumber() {
+
+        if (minPage === maxPage) {
+            changeButtonState([buttonRight, buttonDoubleRight], true);
+        } else {
+            changeButtonState([buttonRight, buttonDoubleRight], false);
         }
     }
 
-    function checkNumberPage() {
-        checkMinPageNumber();
-        checkMaxPageNumber();
-
-        function checkMaxPageNumber() {
-            if (minPage === maxPage + 1) {
-                changeButtonState([buttonRight, buttonDoubleRight], true);
-            } else {
-                changeButtonState([buttonRight, buttonDoubleRight], false);
-            }
-        }
-
-        function checkMinPageNumber() {
-            if (minPage - 1 === 1) {
-                changeButtonState([buttonLeft, buttonDoubleLeft], true);
-            } else {
-                changeButtonState([buttonLeft, buttonDoubleLeft], false);
-            }
+    function checkMinPageNumber() {
+        if (minPage=== 1) {
+            changeButtonState([buttonLeft, buttonDoubleLeft], true);
+        } else {
+            changeButtonState([buttonLeft, buttonDoubleLeft], false);
         }
     }
 }
 
-function getPreviousCards(arr, parent) {
-    if(startIndex - sliderLength > 0) {
-        let subArr = arr.slice(startIndex-(sliderLength * 2),startIndex-sliderLength);
-        createCards(subArr,parent);
-        startIndex -= sliderLength;
-    }
+
+function getNextCards(arr, parent,button) {
+    let pageNumber = Number(button.innerHTML) + 1;
+    let start = pageNumber * sliderLength - sliderLength;
+    let end = pageNumber * sliderLength;
+    let subArr = arr.slice(start, end);
+
+    createCards(subArr, parent);
 }
 
-function getNextCards(arr, parent) {
-    if (startIndex + sliderLength <= arr.length) {
-        let subArr = arr.slice(startIndex, startIndex + sliderLength);
 
-        createCards(subArr, parent);
-        startIndex += sliderLength;
+function getPreviousCards(arr, parent,button) {
+    let pageNumber = Number(button.innerHTML)-1;
+    let start = pageNumber * sliderLength - sliderLength;
+    let end = pageNumber * sliderLength;
+    let subArr = arr.slice(start, end);
 
-
-    }
+    createCards(subArr, parent);
 }
