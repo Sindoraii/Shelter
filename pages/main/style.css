@@ -4,7 +4,11 @@
     border: 0;
     box-sizing: border-box;
 }
+html {
+    height: 100%;
+}
 body {
+    height: 100%;
     font-family: Georgia, serif;
     font-size: 15px;
     --color-light-xl: #FFFFFF;
@@ -174,7 +178,7 @@ a {
     background-color: var(--color-light-s);
     outline: 2px solid var(--color-primary);
 }
-.button:hover {
+.button:hover:not(:disabled) {
     background-color: var(--color-primary-light);
     cursor: pointer;
     outline: 0;
@@ -183,7 +187,7 @@ a {
     background-color: var(--color-primary);
     outline: 0;
 }
-.button_pink:hover {
+.button_pink:hover:not(:disabled) {
     background-color: var(--color-primary-light);
     cursor: pointer;
 }
@@ -252,8 +256,8 @@ a {
 .pets__container-cards {
     display: flex;
 }
-.pets__card {
-    margin-right: 90px ;
+.pets__container-cards > :not(:nth-child(3n)) {
+    margin-right: 90px;
 }
 .pets__icon {
     margin-right: 120px;
