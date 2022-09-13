@@ -382,4 +382,20 @@ a {
         width:569px;
         height: 593px;
     }
+    .about {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .about__article {
+        width: 437px;
+    }
+    .about__wrapper-column {
+        padding: 0;
+    }
+    .about__photo {
+        order: 1;
+        margin-top: 55px;
+    }
+
 }
