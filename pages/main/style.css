@@ -368,9 +368,6 @@ a {
 }
 /* 768px <= width < 1280px */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-    .layout {
-        width: 768px;
-    }
     .layout__content {
         flex-basis: 768px;
     }
@@ -410,8 +407,8 @@ a {
         margin-top: 55px;
     }
     .pets{
-        width: 630px;
-        padding: 0 69px 0 69px;
+        width: 708px;
+        align-self: center;
     }
     .help {
         width: 630px;
