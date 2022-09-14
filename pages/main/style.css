@@ -265,14 +265,26 @@ a {
 .pets__container-cards > :not(:nth-child(3n)) {
     margin-right: 90px;
 }
-.pets__icon {
+.help__icon {
     margin-right: 120px;
 }
-.pets__icon_first-line {
+.help__icon_first-line {
     margin-bottom: 66px;
 }
-.pets__icon >:last-child {
+.help__icon >:last-child {
      padding-top: 30px;
+}
+.help {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.help__cards-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 60px;
 }
 .donation__wrapper-column {
     margin-left: 30px;
@@ -396,6 +408,26 @@ a {
     .about__photo {
         order: 1;
         margin-top: 55px;
+    }
+    .pets{
+        width: 630px;
+        padding: 0 69px 0 69px;
+    }
+    .help {
+        width: 630px;
+        align-self: center;
+    }
+    .help__cards-row {
+        row-gap: 55px;
+        justify-content: space-between;
+    }
+    .help__icon {
+        width: 170px;
+        height: 113px;
+        margin-right: 0;
+    }
+    .help__icon_first-line {
+        margin-bottom: 0;
     }
 
 }
