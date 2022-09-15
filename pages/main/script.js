@@ -2,8 +2,6 @@
     /* import */
     const pets = window.getDate();
     const createCards = window.createCards;
-    console.log('pets main',pets);
-    console.log('cards main',createCards);
 
     /* init */
     const parent = document.querySelector('.pets__container-cards');
@@ -11,11 +9,16 @@
     const buttonLeft =  document.querySelector(' .button_arrow_left');
 
     let startIndex = 1;
-    let sliderLength = 3;
-
-    /* appending three cards by default */
-    const firstCard = pets.slice(0,3);
-    createCards(firstCard,parent);
+    let sliderLength;
+    
+    /* appending the first cards */
+    if(window.outerWidth >= 1280) {
+         sliderLength = 3;
+         createCards(pets.slice(0,3),parent);
+    } else if(window.outerWidth < 1280 && window.outerWidth >= 768 ) {
+        sliderLength = 2;
+        createCards(pets.slice(0,2),parent);
+    }
 
     /* events */
     buttonRight.addEventListener('click',() => getNextCard(pets,parent));
@@ -33,9 +36,15 @@
 
     function getPreviousCard(arr, parentElem) {
         if (startIndex - 1 > 0) {
-            let subArr = arr.slice(startIndex - 2, startIndex + 1);
-            startIndex--;
-            createCards(subArr, parentElem);
+            if(sliderLength === 3) {
+                let subArr = arr.slice(startIndex - 2, startIndex + 1);
+                startIndex--;
+                createCards(subArr, parentElem);
+            } else if(sliderLength === 2) {
+                let subArr = arr.slice(startIndex - 2, startIndex );
+                startIndex--;
+                createCards(subArr, parentElem);
+            }
         }
     }
 

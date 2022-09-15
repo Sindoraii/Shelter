@@ -410,6 +410,21 @@ a {
         width: 708px;
         align-self: center;
     }
+    .pets__cards-row {
+        flex-wrap: nowrap;
+    }
+    .pets__container-cards > :not(:nth-child(3n)){
+        margin-right: 0;
+    }
+    .pets__container-cards {
+        column-gap: 40px;
+    }
+    .button_arrow_left {
+        margin-right: 12px;
+    }
+    .button_arrow_right {
+        margin-left: 12px;
+    }
     .help {
         width: 630px;
         align-self: center;
