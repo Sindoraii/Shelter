@@ -10,7 +10,7 @@
 
     let startIndex = 1;
     let sliderLength;
-    
+
     /* appending the first cards */
     if(window.outerWidth >= 1280) {
          sliderLength = 3;

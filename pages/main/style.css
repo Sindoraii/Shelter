@@ -220,9 +220,6 @@ a {
 .about__wrapper-column > * {
     padding-bottom: 25px;
 }
-.about__photo {
-    height: 408px;
-}
 .card {
     display: flex;
     flex-direction: column;
@@ -320,10 +317,6 @@ a {
     color: var(--color-dark-m);
     padding: 0;
 }
-.donation__photo {
-    width: 505px;
-    height: 261px;
-}
 .footer  {
     display: flex;
     justify-content: center;
@@ -367,7 +360,11 @@ a {
     height: 310px;
 }
 /* 768px <= width < 1280px */
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+/*@media screen and (min-width: 768px) and (max-width: 1279px) {*/
+/*@media screen and (max-width: 768px)  {*/
+/* width < 1280px */
+@media screen and (max-width: 1279px) {
+
     .layout__content {
         flex-basis: 768px;
     }
@@ -388,8 +385,8 @@ a {
     }
     .main-content__wrapper-img {
         align-self: flex-end;
-        width:569px;
-        height: 593px;
+        max-width:569px;
+        max-height: 593px;
     }
     .about {
         display: flex;
@@ -430,8 +427,8 @@ a {
         align-self: center;
     }
     .help__cards-row {
-        row-gap: 55px;
-        justify-content: space-between;
+        row-gap:55px;
+        column-gap:60px;
     }
     .help__icon {
         width: 170px;
@@ -477,7 +474,4 @@ a {
     .footer__photo {
         align-self: center;
     }
-
-
-
 }
