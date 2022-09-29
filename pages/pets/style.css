@@ -1,9 +1,12 @@
-.layout:not(.layout_footer) {
+.light {
     background: var(--color-light-xl);
 }
 .header {
     padding-top: 30px;
     padding-bottom: 30px;
+}
+.main-content {
+    background: var(--color-light-l);
 }
 .header__h1 {
     color: var(--color-dark-l);
