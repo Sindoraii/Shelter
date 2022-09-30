@@ -361,11 +361,9 @@ a {
 }
 /* 768px <= width < 1280px */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-/*@media screen and (max-width: 768px)  {*/
-/* width < 1280px */
 /*@media screen and (max-width: 1279px) {*/
     .layout__content {
-        flex-basis: 768px;
+        flex-shrink: 1;
     }
     .header {
         padding: 30px 30px 60px 30px;
@@ -383,7 +381,6 @@ a {
         padding-bottom: 100px;
     }
     .main-content__wrapper-img {
-        align-self: flex-end;
         max-width:569px;
         max-height: 593px;
     }
