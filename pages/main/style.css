@@ -389,9 +389,6 @@ a {
         justify-content: center;
         align-items: center;
     }
-    .about__article {
-        width: 437px;
-    }
     .about__wrapper-column {
         padding: 0;
     }
@@ -419,12 +416,13 @@ a {
         margin-left: 12px;
     }
     .help {
-        width: 630px;
         align-self: center;
     }
     .help__cards-row {
+        min-width: 630px;
+        width: 61%;
         row-gap:55px;
-        column-gap:60px;
+        column-gap: 9%;
     }
     .help__icon {
         width: 170px;
