@@ -446,21 +446,30 @@ a {
         padding: 30px 0 0 0;
     }
     .footer{
-        width: 708px;
+        width: 100%;
         align-self: center;
         flex-direction: column;
     }
     .footer__text-content {
-      padding-bottom: 65px;
+        column-gap: 56px;
+        width: 100%;
+        min-width: 708px;
+        justify-content: space-between;
+        padding: 0 30px 65px 30px;
     }
     .footer__contacts {
-        padding: 0 56px 0 34px;
+        padding:  0 0 0 34px;
+        width: 341px;
     }
     .footer__location {
+        width: 344px;
         padding: 0 34px 0 0;
     }
     .footer__h3 {
         padding-bottom: 33px;
+    }
+    .location__wrapper-column {
+        width: 301px;
     }
     .location__wrapper-column > a:not(:last-child) {
         padding-bottom: 33px;
