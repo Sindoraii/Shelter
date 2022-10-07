@@ -6,19 +6,15 @@
     /* init */
     const parent = document.querySelector('.pets__container-cards');
     const buttonRight = document.querySelector(' .button_arrow_right');
-    const buttonLeft =  document.querySelector(' .button_arrow_left');
+    const buttonLeft = document.querySelector(' .button_arrow_left');
 
     let startIndex = 1;
     let sliderLength;
 
     /* appending the first cards */
-    if(window.outerWidth >= 1280) {
-         sliderLength = 3;
-         createCards(pets.slice(0,3),parent);
-    } else if(window.outerWidth < 1280 && window.outerWidth >= 768 ) {
-        sliderLength = 2;
-        createCards(pets.slice(0,2),parent);
-    }
+    sliderLength = 3;
+    createCards(pets.slice(0, 3), parent);
+
 
     /* events */
     buttonRight.addEventListener('click',() => getNextCard(pets,parent));

@@ -62,8 +62,7 @@
             cardPets.appendChild(petPhoto);
             cardPets.appendChild(petName);
             cardPets.appendChild(cardButton);
-            wrapper.appendChild(cardPets);
-            parentElem.appendChild(wrapper);
+            parentElem.appendChild(cardPets);
         }
     }
 

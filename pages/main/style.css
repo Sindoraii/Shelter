@@ -4,11 +4,9 @@
     border: 0;
     box-sizing: border-box;
 }
-
 html {
     min-height: 100%;
 }
-
 body {
     min-width: 320px;
     height: 100%;
@@ -29,24 +27,20 @@ body {
     --radial-first: #5B483A;
     --radial-second: #262425;
 }
-
 svg {
     flex-shrink: 0;
 }
-
 h1 {
     font-weight: 400;
     line-height: 35.2px;
     font-size: 32px;
 }
-
 h2 {
     font-weight: 400;
     font-size: 44px;
     line-height: 57.2px;
     color: var(--color-light-xl);
 }
-
 h3 {
     font-weight: 400;
     font-size: 35px;
@@ -55,7 +49,6 @@ h3 {
     color: var(--color-dark-l);
     text-align: center;
 }
-
 h4 {
     font-size: 20px;
     font-weight: 400;
@@ -63,7 +56,6 @@ h4 {
     letter-spacing: 0.06em;
     color: var(--color-dark-l);
 }
-
 h5 {
     font-size: 15px;
     font-weight: 400;
@@ -268,9 +260,7 @@ a {
 }
 .pets__container-cards {
     display: flex;
-}
-.pets__container-cards > :not(:nth-child(3n)) {
-    margin-right: 90px;
+    column-gap: 90px;
 }
 .help__icon {
     margin-right: 120px;
@@ -412,11 +402,11 @@ a {
     .pets__cards-row {
         flex-wrap: nowrap;
     }
-    .pets__container-cards > :not(:nth-child(3n)) {
-        margin-right: 0;
-    }
     .pets__container-cards {
         column-gap: 40px;
+    }
+    .pets__container-cards >:nth-child(3n){
+        display: none;
     }
     .button_arrow_left {
         margin-right: 12px;
@@ -578,13 +568,19 @@ a {
     }
     .pets__cards-row {
         padding-bottom: 42px;
+        max-width: 270px;
+        row-gap: 20px;
+    }
+    .pets__container-cards > .card:not(:first-child){
+        display: none;
     }
     .button_arrow_left{
         order: 1;
-        margin: 0 0 0 40px;
+        margin: 0 40px 0 0;
     }
     .button_arrow_right {
-        margin: 0 40px 0 0;
+        order: 2;
+        margin: 0 0 0 40px;
     }
     .help {
         padding: 42px 15px;
