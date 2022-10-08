@@ -8,6 +8,12 @@
     const buttonRight = document.querySelector(' .button_arrow_right');
     const buttonLeft = document.querySelector(' .button_arrow_left');
 
+    const buttonBurger = document.querySelector('.header__burger_button');
+    const body = document.getElementsByTagName('body')[0];
+    const menu = document.querySelector('.header__menu');
+    const layout = document.querySelector('.layout');
+    const content = document.querySelector('.layout__content');
+
     let startIndex = 1;
     let sliderLength;
 
@@ -19,6 +25,13 @@
     /* events */
     buttonRight.addEventListener('click',() => getNextCard(pets,parent));
     buttonLeft.addEventListener('click', ()=> getPreviousCard(pets,parent));
+    buttonBurger.addEventListener('click', (e) => {
+        menu.classList.toggle('mobile-menu');
+        e.target.classList.toggle('rotate');
+        layout.classList.toggle('layout_mobile');
+        content.classList.toggle('layout_mobile');
+        body.classList.toggle('no-scroll');
+    });
 
 
     function getNextCard(arr, parentElem) {
@@ -43,5 +56,4 @@
             }
         }
     }
-
 })()
