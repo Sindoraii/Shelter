@@ -13,6 +13,7 @@
     const menu = document.querySelector('.header__menu');
     const layout = document.querySelector('.layout');
     const content = document.querySelector('.layout__content');
+    const backgroundWrapper = document.querySelector('.background-wrapper');
 
     let startIndex = 1;
     let sliderLength;
@@ -31,6 +32,7 @@
         layout.classList.toggle('layout_mobile');
         content.classList.toggle('layout_mobile');
         body.classList.toggle('no-scroll');
+        backgroundWrapper.classList.toggle('is-open');
     });
 
 

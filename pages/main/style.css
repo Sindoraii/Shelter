@@ -26,6 +26,7 @@ body {
     --start-screen-gradient-background: #211F20;
     --radial-first: #5B483A;
     --radial-second: #262425;
+    --backgrond: rgba(41, 41, 41, 0.6);
 }
 svg {
     flex-shrink: 0;
@@ -69,6 +70,14 @@ a {
 }
 .no-scroll {
     overflow-y: hidden;
+}
+.background-wrapper {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background: var(--backgrond);
 }
 .layout {
     display: flex;
@@ -724,5 +733,8 @@ a {
     }
     .rotate {
         transform: rotate(90deg);
+    }
+    .is-open {
+        display: block;
     }
 }
