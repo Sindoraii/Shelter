@@ -14,6 +14,7 @@
     const layout = document.querySelector('.layout');
     const content = document.querySelector('.layout__content');
     const backgroundWrapper = document.querySelector('.background-wrapper');
+    const mobileLinks = Array.from(menu.children);
 
     let startIndex = 1;
     let sliderLength;
@@ -26,14 +27,8 @@
     /* events */
     buttonRight.addEventListener('click',() => getNextCard(pets,parent));
     buttonLeft.addEventListener('click', ()=> getPreviousCard(pets,parent));
-    buttonBurger.addEventListener('click', (e) => {
-        menu.classList.toggle('mobile-menu');
-        e.target.classList.toggle('rotate');
-        layout.classList.toggle('layout_mobile');
-        content.classList.toggle('layout_mobile');
-        body.classList.toggle('no-scroll');
-        backgroundWrapper.classList.toggle('is-open');
-    });
+    buttonBurger.addEventListener('click', () => setMobileStyles());
+    mobileLinks.forEach((link) => link.addEventListener('click',()=> setMobileStyles()));
 
 
     function getNextCard(arr, parentElem) {
@@ -58,4 +53,13 @@
             }
         }
     }
+
+     function setMobileStyles() {
+         menu.classList.toggle('mobile-menu');
+         buttonBurger.classList.toggle('rotate');
+         layout.classList.toggle('layout_mobile');
+         content.classList.toggle('layout_mobile');
+         body.classList.toggle('no-scroll');
+         backgroundWrapper.classList.toggle('is-open');
+     }
 })()
