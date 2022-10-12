@@ -25,6 +25,8 @@
 }
 .pets__cards {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     column-gap: 40px;
     row-gap: 30px;
@@ -59,16 +61,16 @@
     .pets__h3 {
         padding-bottom: 30px;
     }
-    .pets__container-cards {
-        column-gap: 40px;
-        row-gap: 30px;
-        align-items: center;
-        justify-content: center;
-    }
-    .pets__container-cards > *.wrapper-column {
-        margin: 0;
-    }
     .pagination {
         margin-top: 40px;
     }
+}
+@media screen and (max-width: 767px) {
+    .header__burger_button::after {
+        content: url("/assets/icons/Burger-black.svg");
+    }
+    .mobile-menu {
+        background: var(--color-light-l);
+    }
+    
 }

@@ -528,7 +528,6 @@ a {
         right: 0;
         background: transparent;
         display: block;
-        color: var(--color-primary);
     }
     .header__burger_button::after {
         content: url("/assets/icons/Burger.svg");

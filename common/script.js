@@ -1,4 +1,28 @@
 (function () {
+    function functionalBurgerMenu() {
+        const buttonBurger = document.querySelector('.header__burger_button');
+        const body = document.getElementsByTagName('body')[0];
+        const menu = document.querySelector('.header__menu');
+        const layout = document.querySelector('.layout');
+        const content = document.querySelector('.layout__content');
+        const backgroundWrapper = document.querySelector('.background-wrapper');
+        const mobileLinks = Array.from(menu.children);
+        buttonBurger.addEventListener('click', () => setMobileStyles());
+        mobileLinks.forEach((link) => link.addEventListener('click', () => {
+            setMobileStyles();
+            body.classList.remove('no-scroll');
+        }));
+
+        function setMobileStyles() {
+            menu.classList.toggle('mobile-menu');
+            buttonBurger.classList.toggle('rotate');
+            layout.classList.toggle('layout_mobile');
+            content.classList.toggle('layout_mobile');
+            body.classList.toggle('no-scroll');
+            backgroundWrapper.classList.toggle('is-open');
+        }
+    }
+
 
     function getDate() {
         const pets = [];
@@ -68,4 +92,5 @@
 
     window.getDate = getDate;
     window.createCards = createCards;
+    window.functionalBurgerMenu = functionalBurgerMenu;
 })()
