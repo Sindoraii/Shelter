@@ -72,5 +72,7 @@
     .mobile-menu {
         background: var(--color-light-l);
     }
-    
+    .pagination > button:not(:last-child) {
+        margin-right: 10px;
+    }
 }
