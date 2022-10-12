@@ -2,7 +2,7 @@
     /* import */
     const pets = window.getDate();
     /* init */
-    const parentElem = document.querySelector('.pets__container-cards');
+    const parentElem = document.querySelector('.pets__cards');
     const buttonLeft = document.querySelector('.pagination__button-left');
     const buttonDoubleLeft = document.querySelector('.pagination__button-left_double');
     const buttonRight = document.querySelector('.pagination__button-right');
