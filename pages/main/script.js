@@ -28,7 +28,10 @@
     buttonRight.addEventListener('click',() => getNextCard(pets,parent));
     buttonLeft.addEventListener('click', ()=> getPreviousCard(pets,parent));
     buttonBurger.addEventListener('click', () => setMobileStyles());
-    mobileLinks.forEach((link) => link.addEventListener('click',()=> setMobileStyles()));
+    mobileLinks.forEach((link) => link.addEventListener('click',()=> {
+        setMobileStyles();
+        body.classList.remove('no-scroll');
+    }));
 
 
     function getNextCard(arr, parentElem) {
