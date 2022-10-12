@@ -1,34 +1,48 @@
-/* init */
-const parent = document.querySelector('.pets__container-cards');
-const buttonRight = document.querySelector(' .button_arrow_right');
-const buttonLeft =  document.querySelector(' .button_arrow_left');
+(function () {
+    /* import */
+    const pets = window.getDate();
+    const createCards = window.createCards;
+    const functionsForBurger = window.functionalBurgerMenu;
+    functionsForBurger();
 
-/* change variables for listeners from common script*/
-let startIndex = 1;
-let sliderLength = 3;
+    /* init */
+    const parent = document.querySelector('.pets__container-cards');
+    const buttonRight = document.querySelector(' .button_arrow_right');
+    const buttonLeft = document.querySelector(' .button_arrow_left');
 
-/* appending three cards by default */
-const firstCard = pets.slice(0,3);
-createCards(firstCard,parent);
+    let startIndex = 1;
+    let sliderLength;
 
-/* events */
-buttonRight.addEventListener('click',() => getNextCard(pets,parent));
-buttonLeft.addEventListener('click', ()=> getPreviousCard(pets,parent));
+    /* appending the first cards */
+    sliderLength = 3;
+    createCards(pets.slice(0, 3), parent);
 
 
-function getNextCard(arr, parentElem) {
-    if (startIndex + sliderLength <= arr.length) {
-        let subArr = arr.slice(startIndex, startIndex + sliderLength);
+    /* events */
+    buttonRight.addEventListener('click',() => getNextCard(pets,parent));
+    buttonLeft.addEventListener('click', ()=> getPreviousCard(pets,parent));
 
-        startIndex += 1;
-        createCards(subArr, parentElem);
+
+    function getNextCard(arr, parentElem) {
+        if (startIndex + sliderLength <= arr.length) {
+            let subArr = arr.slice(startIndex, startIndex + sliderLength);
+
+            startIndex += 1;
+            createCards(subArr, parentElem);
+        }
     }
-}
 
-function getPreviousCard(arr, parentElem) {
-    if (startIndex - 1 > 0) {
-        let subArr = arr.slice(startIndex - 2, startIndex + 1);
-        startIndex--;
-        createCards(subArr, parentElem);
+    function getPreviousCard(arr, parentElem) {
+        if (startIndex - 1 > 0) {
+            if(sliderLength === 3) {
+                let subArr = arr.slice(startIndex - 2, startIndex + 1);
+                startIndex--;
+                createCards(subArr, parentElem);
+            } else if(sliderLength === 2) {
+                let subArr = arr.slice(startIndex - 2, startIndex );
+                startIndex--;
+                createCards(subArr, parentElem);
+            }
+        }
     }
-}
+})()
