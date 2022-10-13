@@ -23,46 +23,6 @@
         }
     }
 
-
-    function getDate() {
-        const pets = [];
-        pets.push(
-            {
-                name: 'Katrine',
-                photo: '../../assets/images/pets/gray-cat.png',
-            },
-            {
-                name: 'Jennifer',
-                photo: '../../assets/images/pets/white-dog.png',
-            },
-            {
-                name: 'Woody',
-                photo: '../../assets/images/pets/orange-dog.png',
-            },
-            {
-                name: 'Sophia',
-                photo: '../../assets/images/pets/pets-sophia.png'
-            },
-            {
-                name: 'Timmy',
-                photo: '../../assets/images/pets/pets-timmy.png'
-            },
-            {
-                name: 'Charly',
-                photo: '../../assets/images/pets/pets-charly.png'
-            },
-            {
-                name: 'Scarlett',
-                photo: '../../assets/images/pets/pets-scarlett.png'
-            },
-            {
-                name: 'Freddie',
-                photo: '../../assets/images/pets/pets-freddie.png'
-            }
-        )
-        return pets;
-    }
-
     function createCards(arr, parentElem) {
         parentElem.textContent = ' ';
 
@@ -81,8 +41,7 @@
             cardButton.className = 'button';
 
             petName.innerText = arr[i].name;
-            petPhoto.setAttribute('src', arr[i].photo);
-
+            petPhoto.setAttribute('src', arr[i].img);
             cardPets.appendChild(petPhoto);
             cardPets.appendChild(petName);
             cardPets.appendChild(cardButton);
@@ -90,7 +49,6 @@
         }
     }
 
-    window.getDate = getDate;
     window.createCards = createCards;
     window.functionalBurgerMenu = functionalBurgerMenu;
 })()

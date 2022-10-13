@@ -1,7 +1,7 @@
 (function(){
     /* import */
-    const pets = window.getDate();
     const functionsForBurger = window.functionalBurgerMenu;
+    const pets = window.data();
 
     /* init */
     const parentElem = document.querySelector('.pets__cards');
@@ -18,7 +18,6 @@
     let sliderLength = 8;
     let maxPage = arrPets.length / sliderLength;
     let minPage = 1;
-
     createCards(firstCard,parentElem);
     functionsForBurger();
 

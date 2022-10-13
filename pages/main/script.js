@@ -1,6 +1,6 @@
 (function () {
     /* import */
-    const pets = window.getDate();
+    const pets = window.data();
     const createCards = window.createCards;
     const functionsForBurger = window.functionalBurgerMenu;
     functionsForBurger();
