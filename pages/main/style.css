@@ -528,12 +528,11 @@ a {
         right: 0;
         background: transparent;
         display: block;
+        transform: rotate(0deg);
+        transition: transform 0.3s linear;
     }
     .header__burger_button::after {
         content: url("/assets/icons/Burger.svg");
-    }
-    .header__menu {
-        display: none;
     }
     .main-content {
         padding: 0 10px;
@@ -709,7 +708,7 @@ a {
         position: absolute;
         top: 30px;
     }
-    .mobile-menu {
+    .mobile-menu_open {
         height: 100vh;
         min-width: 320px;
         position: fixed;
@@ -721,6 +720,21 @@ a {
         flex-direction: column;
         row-gap: 40px;
         color: var(--color-dark-s);
+        transition: right 0.3s linear;
+    }
+    .mobile-menu_close {
+        right: -320px;
+        height: 100vh;
+        min-width: 320px;
+        position: fixed;
+        padding:30px 10px;
+        top: 0;
+        background: var(--color-dark-3xl);
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+        color: var(--color-dark-s);
+        transition: right 0.3s linear;
     }
     .menu__item {
         margin: 0;
@@ -731,7 +745,8 @@ a {
         margin: 0;
     }
     .rotate {
-        transform: rotate(90deg);
+        transform: rotate(-90deg);
+        transition: all 0.3s linear;
     }
     .is-open {
         display: block;

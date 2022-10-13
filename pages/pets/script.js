@@ -14,7 +14,6 @@
     const firstCard = pets.slice(0,8);
     const copy = JSON.parse(JSON.stringify(pets));
     let arrPets = firstCard.concat(copy.reverse()).concat(pets).concat(copy);
-
     let sliderLength = 8;
     let maxPage = arrPets.length / sliderLength;
     let minPage = 1;

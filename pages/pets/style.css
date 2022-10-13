@@ -69,7 +69,10 @@
     .header__burger_button::after {
         content: url("/assets/icons/Burger-black.svg");
     }
-    .mobile-menu {
+    .mobile-menu_open {
+        background: var(--color-light-l);
+    }
+    .mobile-menu_close {
         background: var(--color-light-l);
     }
     .pagination > button:not(:last-child) {
