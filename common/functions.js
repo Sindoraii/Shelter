@@ -8,8 +8,20 @@
         const backgroundWrapper = document.querySelector('.background-wrapper');
         const mobileLinks = Array.from(menu.children);
 
-        buttonBurger.addEventListener('click', () => {
+        buttonBurger.addEventListener('click', () => setMobileStyles());
+
+        mobileLinks.forEach((link) => link.addEventListener('click', () => {
             setMobileStyles();
+            body.classList.remove('no-scroll');
+        }));
+
+
+        function setMobileStyles() {
+            buttonBurger.classList.toggle('rotate');
+            layout.classList.toggle('layout_mobile');
+            content.classList.toggle('layout_mobile');
+            body.classList.toggle('no-scroll');
+            backgroundWrapper.classList.toggle('is-open');
 
             if(menu.classList.contains('mobile-menu_close')) {
                 menu.classList.add('mobile-menu_open');
@@ -18,19 +30,6 @@
                 menu.classList.add('mobile-menu_close');
                 menu.classList.remove('mobile-menu_open');
             }
-        });
-
-        mobileLinks.forEach((link) => link.addEventListener('click', () => {
-            setMobileStyles();
-            body.classList.remove('no-scroll');
-        }));
-
-        function setMobileStyles() {
-            buttonBurger.classList.toggle('rotate');
-            layout.classList.toggle('layout_mobile');
-            content.classList.toggle('layout_mobile');
-            body.classList.toggle('no-scroll');
-            backgroundWrapper.classList.toggle('is-open');
         }
     }
 
