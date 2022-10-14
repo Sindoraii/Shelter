@@ -6,15 +6,24 @@
         const layout = document.querySelector('.layout');
         const content = document.querySelector('.layout__content');
         const backgroundWrapper = document.querySelector('.background-wrapper');
-        const mobileLinks = Array.from(menu.children);
 
-        buttonBurger.addEventListener('click', () => setMobileStyles());
 
-        mobileLinks.forEach((link) => link.addEventListener('click', () => {
+        buttonBurger.addEventListener('click', (event) => {
             setMobileStyles();
-            body.classList.remove('no-scroll');
-        }));
+            event.stopPropagation();
+        });
 
+        menu.addEventListener('click', (event) => {
+            if(event.target !== menu) {
+                setMobileStyles();
+            }
+        })
+
+        body.addEventListener('click', (event) => {
+            if(!event.target.closest('.mobile-menu_open') && menu.classList.contains('mobile-menu_open')) {
+                setMobileStyles();
+            }
+        })
 
         function setMobileStyles() {
             buttonBurger.classList.toggle('rotate');
