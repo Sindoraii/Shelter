@@ -42,6 +42,7 @@
         }
     }
 
+
     function createCards(arr, parentElem) {
         parentElem.textContent = ' ';
 
@@ -59,8 +60,8 @@
             cardButton.innerText = 'Learn more';
             cardButton.className = 'button';
 
-            petName.innerText = arr[i].name;
-            petPhoto.setAttribute('src', arr[i].img);
+            petName.innerText = arr[i].pet.name;
+            petPhoto.setAttribute('src', arr[i].pet.img);
             cardPets.appendChild(petPhoto);
             cardPets.appendChild(petName);
             cardPets.appendChild(cardButton);
@@ -68,6 +69,22 @@
         }
     }
 
+
+    function adaptDataForSliders (arr) {
+        let copy  = JSON.parse(JSON.stringify(arr));
+        return copy.map((item) => {
+            return {pet:item,
+                    id: `${item.name}.${item.type}.${item.age}`
+            }
+        })
+    }
+
+    function getRandomIntFromRange(min,max) {
+        return Math.floor(Math.random() * ( max - min + 1)) + min;
+    }
+
+    window.getRandomIntFromRange = getRandomIntFromRange;
+    window.adaptDataForSliders = adaptDataForSliders;
     window.createCards = createCards;
     window.functionalBurgerMenu = functionalBurgerMenu;
 })()
