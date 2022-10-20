@@ -14,54 +14,53 @@
     const buttonRight = document.querySelector(' .button_arrow_right');
     const buttonLeft = document.querySelector(' .button_arrow_left');
     const sliderLength = 3;
+    
+    /* arrays for creating cards that depend on events*/
     let previousPets = [];
+    let savingNext = [];
 
     /* appending the first cards */
-    let currentPets = getNextPets(newPetsArr,sliderLength);
+    let currentPets = getRandomPets(newPetsArr,sliderLength);
     createCards(currentPets,parent);
-
-
-    console.log('currentPets',currentPets)
-    // console.log('prev', previousPets)
-
 
     /* events */
     buttonRight.addEventListener('click',() => getNextCards(parent));
     buttonLeft.addEventListener('click', ()=> getPreviousCards(parent));
 
-    // buttonLeft.addEventListener('click', ()=> getPreviousCard(pets,parent));
-    // buttonLeft.addEventListener('click', ()=> getPreviousCards(newPetsArr,sliderLength,parent));
-
 
     function getNextCards(parentElem) {
-        let nextPets = getNextPets(newPetsArr,sliderLength,currentPets);
-        createCards(nextPets,parentElem);
-        /* save current cards for showing it like previous and change current cards */
-        previousPets = currentPets;
-        currentPets = nextPets;
+        if (savingNext.length !== 0) {
+            createCards(savingNext,parentElem);
+            let temp = currentPets;
+            currentPets = savingNext;
+            savingNext = [];
+            previousPets = temp;
+        } else {
+            let nextPets = getRandomPets(newPetsArr, sliderLength, currentPets);
+            createCards(nextPets, parentElem);
+            /* save current cards for showing it like previous and change current cards */
+            previousPets = currentPets;
+            currentPets = nextPets;
+        }
     }
 
     function getPreviousCards(parentElem) {
-        let savingNext = currentPets;
-        createCards(previousPets,parentElem);
-
-
+         savingNext = currentPets;
+        if(previousPets.length !== 0) {
+            createCards(previousPets, parentElem);
+            currentPets = previousPets;
+            previousPets = savingNext;
+        } else {
+            previousPets = getRandomPets(newPetsArr,sliderLength,currentPets);
+            createCards(previousPets, parentElem);
+            savingNext = currentPets;
+            currentPets = previousPets;
+            previousPets = []
+        }
     }
-    
 
 
-    // }
-    // function getPreviousCard(arr, parentElem) {
-    //     if (startIndex - 1 > 0) {
-    //         if(sliderLength === 3) {
-    //             let subArr = arr.slice(startIndex - 2, startIndex + 1);
-    //             startIndex--;
-    //             createCards(subArr, parentElem);
-    //         }
-    //     }
-    // }
-
-    function getNextPets(data, cardsCount, currentPetsArr = []) {
+    function getRandomPets(data, cardsCount, currentPetsArr = []) {
         let copyData = JSON.parse(JSON.stringify(data));
         let nextPets = [];
         let dataForGettingRandomPets;
