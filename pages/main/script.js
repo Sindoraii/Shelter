@@ -14,7 +14,7 @@
     const buttonRight = document.querySelector(' .button_arrow_right');
     const buttonLeft = document.querySelector(' .button_arrow_left');
     const sliderLength = 3;
-    
+
     /* arrays for creating cards that depend on events*/
     let previousPets = [];
     let savingNext = [];
@@ -123,16 +123,7 @@
         }
         return nextPets;
     }
-
-    function compareArrays(current, prev) {
-        for (let i = 0; i < prev.length; i++) {
-            let result = current.includes(prev[i]);
-            if (result) {
-                return false;
-            }
-        }
-        return true;
-    }
+    
 
     function getPetsWithoutCurrentPets(current, allPets) {
         let dataWithoutCurrentPets = [];
