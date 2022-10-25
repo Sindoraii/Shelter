@@ -2,6 +2,8 @@
     /* import */
     const functionsForBurger = window.functionalBurgerMenu;
     const pets = window.data();
+    const newPetsArr = window.adaptDataForSliders(pets);
+
 
     /* init */
     const parentElem = document.querySelector('.pets__cards');
@@ -11,9 +13,9 @@
     const buttonDoubleRight = document.querySelector('.pagination__button-right_double');
     const buttonNumber = document.querySelector('.pagination__button-number');
 
-    const firstCard = pets.slice(0,8);
-    const copy = JSON.parse(JSON.stringify(pets));
-    let arrPets = firstCard.concat(copy.reverse()).concat(pets).concat(copy);
+    const firstCard = newPetsArr.slice(0,8);
+    const copy = JSON.parse(JSON.stringify(newPetsArr));
+    let arrPets = firstCard.concat(copy.reverse()).concat(newPetsArr).concat(copy);
     let sliderLength = 8;
     let maxPage = arrPets.length / sliderLength;
     let minPage = 1;
