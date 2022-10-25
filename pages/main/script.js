@@ -1,7 +1,6 @@
 (function () {
     /* import */
     const pets = window.data();
-    /* todo*/
     const newPetsArr = window.adaptDataForSliders(pets);
     const createRandomIndex = window.getRandomIntFromRange;
 

@@ -1,3 +1,5 @@
+@import url('/common/popupDescriptionOfPets/popupDescriptionOfPets.css');
+
 *, ::before, ::after {
     padding: 0;
     margin: 0;
@@ -26,7 +28,8 @@ body {
     --start-screen-gradient-background: #211F20;
     --radial-first: #5B483A;
     --radial-second: #262425;
-    --backgrond: rgba(41, 41, 41, 0.6);
+    --background: rgba(41, 41, 41, 0.6);
+    --background-light: #E5E5E5;
 }
 svg {
     flex-shrink: 0;
@@ -77,7 +80,7 @@ a {
     position: fixed;
     top: 0;
     width: 100vw;
-    background: var(--backgrond);
+    background: var(--background);
 }
 .layout {
     display: flex;

@@ -1,4 +1,7 @@
 (function () {
+    /*import*/
+    const popup = window.popupDescriptionOfPets;
+
     function functionalBurgerMenu() {
         const buttonBurger = document.querySelector('.header__burger_button');
         const body = document.getElementsByTagName('body')[0];
@@ -66,6 +69,13 @@
             cardPets.appendChild(petName);
             cardPets.appendChild(cardButton);
             parentElem.appendChild(cardPets);
+
+            cardPets.addEventListener('click',(event) =>  {
+                const body = document.querySelector('body');
+                body.classList.add('no-scroll');
+                popup(arr[i].pet);
+                event.stopPropagation();
+            });
         }
     }
 
