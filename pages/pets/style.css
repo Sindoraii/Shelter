@@ -75,6 +75,9 @@
     .mobile-menu_close {
         background: var(--color-light-l);
     }
+    .pets__cards {
+        column-gap: 220px;
+    }
     .pagination > button:not(:last-child) {
         margin-right: 10px;
     }

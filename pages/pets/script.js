@@ -3,7 +3,7 @@
     const functionsForBurger = window.functionalBurgerMenu;
     const pets = window.data();
     const newPetsArr = window.adaptDataForSliders(pets);
-
+    const getRandomPets = window.getRandomPets;
 
     /* init */
     const parentElem = document.querySelector('.pets__cards');
@@ -13,7 +13,8 @@
     const buttonDoubleRight = document.querySelector('.pagination__button-right_double');
     const buttonNumber = document.querySelector('.pagination__button-number');
 
-    const firstCard = newPetsArr.slice(0,8);
+    const firstCard = getRandomPets(newPetsArr,getCardCount());
+
     const copy = JSON.parse(JSON.stringify(newPetsArr));
     let arrPets = firstCard.concat(copy.reverse()).concat(newPetsArr).concat(copy);
     let sliderLength = 8;
@@ -126,5 +127,16 @@
         let subArr = arr.slice(start, end);
 
         createCards(subArr, parent);
+    }
+
+    function getCardCount() {
+        console.log(window.outerWidth)
+        if(window.outerWidth >= 1280) {
+            return 8;
+        } else if( 767 < window.outerWidth  && window.outerWidth < 1280) {
+            return 6;
+        } else {
+            return 3;
+        }
     }
 })()

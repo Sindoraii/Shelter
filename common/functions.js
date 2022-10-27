@@ -95,64 +95,67 @@
         let copyData = JSON.parse(JSON.stringify(data));
         let nextPets = [];
         let dataForGettingRandomPets;
+        if(cardsCount > data.length) {
+            console.error('getRandomPets: data.length < cardsCount');
+        } else {
+            if (currentPetsArr.length !== 0) {
+                /* conditional for creating next cards */
+                dataForGettingRandomPets = getPetsWithoutCurrentPets(currentPetsArr, copyData);
+                for (let i = 0; i < cardsCount; i++) {
+                    /* get random pet from arr pets without current pets*/
+                    let index = getRandomIntFromRange(0, dataForGettingRandomPets.length - 1);
+                    let pet = dataForGettingRandomPets[index];
 
-        if (currentPetsArr.length !== 0) {
-            /* conditional for creating next cards */
-            dataForGettingRandomPets = getPetsWithoutCurrentPets(currentPetsArr, copyData);
-            for (let i = 0; i < cardsCount; i++) {
-                /* get random pet from arr pets without current pets*/
-                let index = getRandomIntFromRange(0, dataForGettingRandomPets.length - 1);
-                let pet = dataForGettingRandomPets[index];
-
-                /* compare pets from nextPets and random pet and current*/
-                if (nextPets.length === 0) {
-                    nextPets.push(pet);
-                } else {
-                    let repeatingPetInsideNextPets = nextPets.find((item) => {
-                        return item.id === pet.id;
-                    });
-                    if (repeatingPetInsideNextPets === undefined) {
+                    /* compare pets from nextPets and random pet and current*/
+                    if (nextPets.length === 0) {
                         nextPets.push(pet);
                     } else {
-                        while (repeatingPetInsideNextPets !== undefined) {
+                        let repeatingPetInsideNextPets = nextPets.find((item) => {
+                            return item.id === pet.id;
+                        });
+                        if (repeatingPetInsideNextPets === undefined) {
+                            nextPets.push(pet);
+                        } else {
+                            while (repeatingPetInsideNextPets !== undefined) {
+                                index = getRandomIntFromRange(0, dataForGettingRandomPets.length - 1);
+                                pet = dataForGettingRandomPets[index];
+                                repeatingPetInsideNextPets = nextPets.find((item) => {
+                                    return item.id === pet.id
+                                });
+                            }
+                            nextPets.push(pet);
+                        }
+                    }
+                }
+
+            } else {
+                dataForGettingRandomPets = copyData;
+                /* conditional for creating the first cards */
+                let firstItem = dataForGettingRandomPets[getRandomIntFromRange(0, dataForGettingRandomPets.length - 1)];
+                nextPets.push(firstItem);
+
+                for (let i = 1; i < cardsCount; i++) {
+                    /* get random pet*/
+                    let index = getRandomIntFromRange(0, dataForGettingRandomPets.length - 1);
+                    let pet = dataForGettingRandomPets[index];
+
+                    /* compare pets from nextPets and random pet*/
+                    let repeatingPet = nextPets.find((item) => item.id === pet.id);
+
+                    if (repeatingPet === undefined) {
+                        nextPets.push(pet);
+                    } else {
+                        while (repeatingPet !== undefined) {
                             index = getRandomIntFromRange(0, dataForGettingRandomPets.length - 1);
                             pet = dataForGettingRandomPets[index];
-                            repeatingPetInsideNextPets = nextPets.find((item) => {
-                                return item.id === pet.id
-                            });
+                            repeatingPet = nextPets.find((item) => item.id === pet.id);
                         }
                         nextPets.push(pet);
                     }
                 }
             }
-
-        } else {
-            dataForGettingRandomPets = copyData;
-            /* conditional for creating the first cards */
-            let firstItem = dataForGettingRandomPets[getRandomIntFromRange(0, dataForGettingRandomPets.length-1)];
-            nextPets.push(firstItem);
-
-            for (let i = 1; i < cardsCount; i++) {
-                /* get random pet*/
-                let index = getRandomIntFromRange(0, dataForGettingRandomPets.length-1);
-                let pet = dataForGettingRandomPets[index];
-
-                /* compare pets from nextPets and random pet*/
-                let repeatingPet = nextPets.find((item) => item.id === pet.id);
-
-                if (repeatingPet === undefined) {
-                    nextPets.push(pet);
-                } else {
-                    while (repeatingPet !== undefined) {
-                        index = getRandomIntFromRange(0, dataForGettingRandomPets.length-1);
-                        pet = dataForGettingRandomPets[index];
-                        repeatingPet = nextPets.find((item) => item.id === pet.id);
-                    }
-                    nextPets.push(pet);
-                }
-            }
+            return nextPets;
         }
-        return nextPets;
 
         function getRandomIntFromRange(min,max) {
             return Math.floor(Math.random() * ( max - min + 1)) + min;
