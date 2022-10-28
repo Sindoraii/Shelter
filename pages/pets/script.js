@@ -12,14 +12,15 @@
     const buttonRight = document.querySelector('.pagination__button-right');
     const buttonDoubleRight = document.querySelector('.pagination__button-right_double');
     const buttonNumber = document.querySelector('.pagination__button-number');
+    const copyPets = JSON.parse(JSON.stringify(newPetsArr));
+    const PETS_ARRAY_LENGTH = 48;
 
-    const firstCard = getRandomPets(newPetsArr,getCardCount());
-
-    const copy = JSON.parse(JSON.stringify(newPetsArr));
-    let arrPets = firstCard.concat(copy.reverse()).concat(newPetsArr).concat(copy);
-    let sliderLength = 8;
+    let sliderLength = getCardCount();
+    let arrPets = createStubDataForPetPage(PETS_ARRAY_LENGTH,sliderLength); // create array pets from copyPets
+    let firstCard = arrPets.slice(0,sliderLength);
     let maxPage = arrPets.length / sliderLength;
     let minPage = 1;
+
     createCards(firstCard,parentElem);
     functionsForBurger();
 
@@ -129,8 +130,8 @@
         createCards(subArr, parent);
     }
 
+
     function getCardCount() {
-        console.log(window.outerWidth)
         if(window.outerWidth >= 1280) {
             return 8;
         } else if( 767 < window.outerWidth  && window.outerWidth < 1280) {
@@ -139,4 +140,20 @@
             return 3;
         }
     }
+
+
+    function createStubDataForPetPage(length,sliderLength) {
+        if (length % sliderLength === 0) {
+            let stub = [];
+
+            while (stub.length !== length) {
+                let nextPets = getRandomPets(copyPets, copyPets.length);
+                stub = stub.concat(nextPets);
+            }
+            return stub;
+        } else {
+            console.error('createStubDataForPetPage: length is not divisible without remainder')
+        }
+    }
+
 })()

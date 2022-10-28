@@ -96,17 +96,18 @@
         let nextPets = [];
         let dataForGettingRandomPets;
         if(cardsCount > data.length) {
-            console.error('getRandomPets: data.length < cardsCount');
+            console.error('getRandomPets: cardsCount is incorrect');
         } else {
-            if (currentPetsArr.length !== 0) {
-                /* conditional for creating next cards */
+            /* conditionals for creating and comparing next cards */
+            if (currentPetsArr.length !== 0 && currentPetsArr.length !== data.length )  {
+                /* creating next cards without repeated pets */
                 dataForGettingRandomPets = getPetsWithoutCurrentPets(currentPetsArr, copyData);
                 for (let i = 0; i < cardsCount; i++) {
                     /* get random pet from arr pets without current pets*/
                     let index = getRandomIntFromRange(0, dataForGettingRandomPets.length - 1);
                     let pet = dataForGettingRandomPets[index];
 
-                    /* compare pets from nextPets and random pet and current*/
+                    /* compare pets from nextPets and random pet */
                     if (nextPets.length === 0) {
                         nextPets.push(pet);
                     } else {
@@ -127,7 +128,6 @@
                         }
                     }
                 }
-
             } else {
                 dataForGettingRandomPets = copyData;
                 /* conditional for creating the first cards */
@@ -163,12 +163,11 @@
 
         function getPetsWithoutCurrentPets(current, allPets) {
             let dataWithoutCurrentPets = [];
-
-            for (let i = 0; i < allPets.length; i++) {
-                if (current.find((item) => item.id === allPets[i].id) === undefined) {
-                    dataWithoutCurrentPets.push(allPets[i]);
+             for (let i = 0; i < allPets.length; i++) {
+                    if (current.find((item) => item.id === allPets[i].id) === undefined) {
+                        dataWithoutCurrentPets.push(allPets[i]);
+                    }
                 }
-            }
             return dataWithoutCurrentPets;
         }
     }
