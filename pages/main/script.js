@@ -48,13 +48,12 @@
         if(previousPets.length !== 0) {
             createCards(previousPets, parentElem);
             currentPets = previousPets;
-            previousPets = savingNext;
+            previousPets = [];
         } else {
             previousPets = getRandomPets(newPetsArr,sliderLength,currentPets);
             createCards(previousPets, parentElem);
-            savingNext = currentPets;
             currentPets = previousPets;
-            previousPets = []
+            previousPets = [];
         }
     }
 })()
