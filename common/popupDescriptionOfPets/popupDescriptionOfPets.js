@@ -19,7 +19,7 @@
 
         petImg.setAttribute('src', `${pet.img}`);
         petImg.setAttribute('alt','pet`s photo');
-        iconClose.setAttribute('src','/assets/icons/Vector.svg');
+        iconClose.setAttribute('src','../../assets/icons/Vector.svg');
         popup.setAttribute('name','pet-info');
 
 
