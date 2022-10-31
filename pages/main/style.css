@@ -1,4 +1,4 @@
-@import url('/common/popupDescriptionOfPets/popupDescriptionOfPets.css');
+@import url('../../common/popupDescriptionOfPets/popupDescriptionOfPets.css');
 
 *, ::before, ::after {
     padding: 0;
