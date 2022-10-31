@@ -538,7 +538,7 @@ a {
         transition: transform 0.3s linear;
     }
     .header__burger_button::after {
-        content: url("/assets/icons/Burger.svg");
+        content: url("../../assets/icons/Burger.svg");
     }
     .main-content {
         padding: 0 10px;
