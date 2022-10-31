@@ -248,6 +248,9 @@ a {
     flex-shrink: 0;
     width: 270px;
     padding-bottom: 30px;
+    animation-name: show-cards;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
 }
 .card > *:not(:last-child) {
     padding-bottom: 30px;
@@ -753,5 +756,14 @@ a {
     }
     .is-open {
         display: block;
+    }
+}
+
+@keyframes show-cards {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
