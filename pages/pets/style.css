@@ -67,7 +67,7 @@
 }
 @media screen and (max-width: 767px) {
     .header__burger_button::after {
-        content: url("/assets/icons/Burger-black.svg");
+        content: url("../../assets/icons/Burger-black.svg");
     }
     .mobile-menu_open {
         background: var(--color-light-l);
