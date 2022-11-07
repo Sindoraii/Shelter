@@ -1,6 +1,6 @@
 (function () {
   function data() {
-    let data = `[
+    const data = `[
       {
         "name": "Jennifer",
         "img": "../../assets/images/jennifer.png",
