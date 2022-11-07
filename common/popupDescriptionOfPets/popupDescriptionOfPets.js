@@ -16,17 +16,14 @@
         const wrapper = document.createElement('div');
         let characteristics = getCharacteristics(pet);
 
-
         petImg.setAttribute('src', `${pet.img}`);
         petImg.setAttribute('alt','pet`s photo');
         iconClose.setAttribute('src','../../assets/icons/Vector.svg');
         popup.setAttribute('name','pet-info');
 
-
         title.innerHTML = pet.name;
         subtitle.innerHTML = `${pet.type} - ${pet.breed}`;
         text.innerHTML = pet.description;
-
 
         for (let key in characteristics) {
             const item = document.createElement('li');
@@ -38,7 +35,6 @@
             item.prepend(title);
             list.appendChild(item);
         }
-
 
         popup.classList.add('pet-info');
         closeButton.classList.add('pet-info__close','button','button_arrow');
@@ -73,7 +69,6 @@
             popup.remove()
         });
 
-
         closeButton.appendChild(iconClose)
         photo.appendChild(petImg)
         description.appendChild(title);
@@ -85,7 +80,6 @@
         popup.appendChild(description);
         root.appendChild(popup);
         root.appendChild(wrapper);
-
 
         function getCharacteristics(obj) {
             let result = {};

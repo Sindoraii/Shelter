@@ -3,7 +3,6 @@
     const pets = window.data();
     const newPetsArr = window.adaptDataForSliders(pets);
     const getRandomPets = window.getRandomPets;
-
     const createCards = window.createCards;
     const functionsForBurger = window.functionalBurgerMenu;
     functionsForBurger();
@@ -25,7 +24,6 @@
     /* events */
     buttonRight.addEventListener('click',() => getNextCards(parent));
     buttonLeft.addEventListener('click', ()=> getPreviousCards(parent));
-
 
     function getNextCards(parentElem) {
         if (savingNext.length !== 0) {
