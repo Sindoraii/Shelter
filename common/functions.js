@@ -50,7 +50,7 @@
     function createCards(arr, parentElem) {
         parentElem.textContent = ' ';
 
-        for (let i = 0; i < arr.length; i++) {
+        arr.forEach((item) => {
             const cardPets = document.createElement('article');
             cardPets.classList.add('card');
 
@@ -64,8 +64,8 @@
             cardButton.innerText = 'Learn more';
             cardButton.className = 'button';
 
-            petName.innerText = arr[i].pet.name;
-            petPhoto.setAttribute('src', arr[i].pet.img);
+            petName.innerText = item.pet.name;
+            petPhoto.setAttribute('src', item.pet.img);
             cardPets.appendChild(petPhoto);
             cardPets.appendChild(petName);
             cardPets.appendChild(cardButton);
@@ -74,10 +74,10 @@
             cardPets.addEventListener('click',(event) =>  {
                 const body = document.querySelector('body');
                 body.classList.add('no-scroll');
-                popup(arr[i].pet);
+                popup(item.pet);
                 event.stopPropagation();
             });
-        }
+        })
     }
 
 
