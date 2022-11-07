@@ -2,15 +2,15 @@
     /*import*/
     const popup = window.popupDescriptionOfPets;
 
+    /* common variables */
+    const body = document.getElementsByTagName('body')[0];
+    const buttonBurger = document.querySelector('.header__burger_button');
+    const menu = document.querySelector('.header__menu');
+    const layout = document.querySelector('.layout');
+    const content = document.querySelector('.layout__content');
+    const backgroundWrapper = document.querySelector('.background-wrapper');
+
     function functionalBurgerMenu() {
-        const buttonBurger = document.querySelector('.header__burger_button');
-        const body = document.getElementsByTagName('body')[0];
-        const menu = document.querySelector('.header__menu');
-        const layout = document.querySelector('.layout');
-        const content = document.querySelector('.layout__content');
-        const backgroundWrapper = document.querySelector('.background-wrapper');
-
-
         buttonBurger.addEventListener('click', (event) => {
             setMobileStyles();
             event.stopPropagation();
@@ -72,7 +72,6 @@
             parentElem.appendChild(cardPets);
 
             cardPets.addEventListener('click',(event) =>  {
-                const body = document.querySelector('body');
                 body.classList.add('no-scroll');
                 popup(item.pet);
                 event.stopPropagation();
@@ -82,26 +81,31 @@
 
 
     function adaptDataForSliders (arr) {
-        let copy  = JSON.parse(JSON.stringify(arr));
+        const copy  = JSON.parse(JSON.stringify(arr));
+
         return copy.map((item) => {
-            return {pet:item,
-                    id: `${item.name}.${item.type}.${item.age}`
+            return {
+                pet: item,
+                id: `${item.name}.${item.type}.${item.age}`
             }
         })
     }
 
 
     function getRandomPets(data, cardsCount, currentPetsArr = []) {
-        let copyData = JSON.parse(JSON.stringify(data));
-        let nextPets = [];
+        const copyData = JSON.parse(JSON.stringify(data));
+        const nextPets = [];
         let dataForGettingRandomPets;
-        if(cardsCount > data.length) {
+
+        if (cardsCount > data.length) {
             console.error('getRandomPets: cardsCount is incorrect');
         } else {
             /* conditionals for creating and comparing next cards */
-            if (currentPetsArr.length !== 0 && currentPetsArr.length !== data.length )  {
+            if (currentPetsArr.length !== 0 && currentPetsArr.length !== data.length) {
+
                 /* creating next cards without repeated pets */
                 dataForGettingRandomPets = getPetsWithoutCurrentPets(currentPetsArr, copyData);
+
                 for (let i = 0; i < cardsCount; i++) {
                     /* get random pet from arr pets without current pets*/
                     let index = getRandomIntFromRange(0, dataForGettingRandomPets.length - 1);
@@ -114,6 +118,7 @@
                         let repeatingPetInsideNextPets = nextPets.find((item) => {
                             return item.id === pet.id;
                         });
+
                         if (repeatingPetInsideNextPets === undefined) {
                             nextPets.push(pet);
                         } else {
@@ -131,7 +136,7 @@
             } else {
                 dataForGettingRandomPets = copyData;
                 /* conditional for creating the first cards */
-                let firstItem = dataForGettingRandomPets[getRandomIntFromRange(0, dataForGettingRandomPets.length - 1)];
+                const firstItem = dataForGettingRandomPets[getRandomIntFromRange(0, dataForGettingRandomPets.length - 1)];
                 nextPets.push(firstItem);
 
                 for (let i = 1; i < cardsCount; i++) {
@@ -162,12 +167,14 @@
         }
 
         function getPetsWithoutCurrentPets(current, allPets) {
-            let dataWithoutCurrentPets = [];
-             for (let i = 0; i < allPets.length; i++) {
-                    if (current.find((item) => item.id === allPets[i].id) === undefined) {
-                        dataWithoutCurrentPets.push(allPets[i]);
-                    }
+            const dataWithoutCurrentPets = [];
+
+            allPets.forEach((pet) => {
+                if (current.find((currentPet) => currentPet.id === pet.id) === undefined) {
+                    dataWithoutCurrentPets.push(pet);
                 }
+            })
+
             return dataWithoutCurrentPets;
         }
     }
