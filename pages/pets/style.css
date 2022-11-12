@@ -1,0 +1,106 @@
+.light {
+    background: var(--color-light-xl);
+}
+
+.header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.main-content {
+    background: var(--color-light-l);
+}
+
+.header__h1 {
+    color: var(--color-dark-l);
+}
+
+.header__text {
+    color: var(--color-dark-3xl);
+}
+
+.menu__item {
+    color: var(--color-dark-l);
+}
+
+.menu__item_active {
+    color: var(--color-dark-3xl);
+}
+
+.main-content-flexible {
+    flex: 1 0 auto;
+}
+
+.pets__cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 30px;
+}
+
+.pets__cards-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.pets__card {
+    margin-right: 40px;
+}
+
+.pagination {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination > button:not(:last-child) {
+    margin-right: 20px;
+}
+
+.pagination > .button_arrow {
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.pagination > *:disabled {
+    color: var(--color-dark-s);
+    outline: 2px solid var(--color-dark-s);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .layout_gray {
+        padding-bottom: 76px;
+    }
+
+    .pets__h3 {
+        padding-bottom: 30px;
+    }
+
+    .pagination {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header__burger_button::after {
+        content: url("../../assets/icons/Burger-black.svg");
+    }
+
+    .mobile-menu_open {
+        background: var(--color-light-l);
+    }
+
+    .mobile-menu_close {
+        background: var(--color-light-l);
+    }
+
+    .pets__cards {
+        column-gap: 220px;
+    }
+
+    .pagination > button:not(:last-child) {
+        margin-right: 10px;
+    }
+}
